@@ -16,3 +16,9 @@ A link to your GitHub account with code and showing activity.????
 (shared repository)
 
 Wordcount to be between 800-1000 words.
+
+
+-------------
+
+separate js files
+Js game
