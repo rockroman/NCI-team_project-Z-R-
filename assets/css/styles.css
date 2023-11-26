@@ -154,3 +154,16 @@ footer {
   backdrop-filter: blur(5px);
   opacity: 91%;
 }
+
+/* about page */
+.slide-image {
+  width: 20%;
+  height: auto;
+  max-width: 200px;
+}
+
+.recommendation-container {
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}

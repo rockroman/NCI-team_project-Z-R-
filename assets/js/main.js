@@ -100,14 +100,14 @@ window.onscroll = () => {
 const myForm = document.querySelector("#myForm");
 let username = document.querySelector("#name");
 let mail = document.querySelector("#email");
-// console.log(mail);
+
 let inputsFields = document.querySelectorAll("input");
 
 let custError = document.querySelector("#option-error");
+let dateEl = document.getElementById("datepicker");
+let myEr = document.getElementById("my-err");
 
 switchingEventListeners();
-
-// myForm.addEventListener("submit", handleSubmit);
 
 inputsFields.forEach((field) => {
   field.addEventListener("focus", () => {
@@ -119,11 +119,8 @@ inputsFields.forEach((field) => {
 function handleSubmit(e) {
   e.preventDefault();
   let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-  let chosenOption1 = document.getElementById("dropdown");
-  let chosenOption2 = document.getElementById("dropdown2");
-
-  let optionsValid = true;
+  let dropOption = document.getElementById("dropdown");
+  let formValid = true;
 
   if (username.value === "") {
     username.classList.add("border-danger");
@@ -135,26 +132,34 @@ function handleSubmit(e) {
     mail.classList.add("border-danger");
     mail.value = "";
     mail.placeholder = "Please enter a valid e-mail address";
-
     return false;
   }
+  // date logic
+  if (dateEl.value === "") {
+    dateEl.classList.add("border-danger");
+    myEr.classList.remove("d-none");
+    formValid = false;
+  } else {
+    formValid = checkIsItInPast();
+  }
+  // checkIsItInPast();
 
-  if (chosenOption1.value === "" && chosenOption2.value === "") {
-    // let custError = document.querySelector("#option-error");
+  if (dropOption.value === "") {
     custError.classList.remove("d-none");
-
-    chosenOption1.addEventListener("focus", removeCustomError);
-    chosenOption2.addEventListener("focus", removeCustomError);
-
-    optionsValid = false;
-  } else if (chosenOption1.value !== "" || chosenOption2.value !== "") {
-    optionsValid = true;
+    dropOption.addEventListener("focus", removeCustomError);
+    formValid = false;
   }
 
-  if (optionsValid) {
+  if (formValid) {
     modalHandle();
     new bootstrap.Modal(document.querySelector("#exampleModal")).show();
     myForm.reset();
+    handleCheckboxToggle();
+    document.querySelectorAll(".my-select").forEach((element) => {
+      element.classList.add("d-none");
+    });
+    document.querySelector(".my-datepicker").classList.remove("d-none");
+    dateEl.classList.remove("d-none");
   }
 }
 
@@ -168,12 +173,17 @@ function switchingEventListeners() {
   getReferringPage();
   // console.log(currentPage);
   if (currentPage === "contact.html") {
+    handleCheckboxToggle();
     myForm.addEventListener("submit", handleSubmit);
+    dateEl.addEventListener("focus", datePickCustomError);
   }
-  if (document.referrer.split("/").pop() === "gallery.html") {
-    document.querySelector("#dropdown").classList.add("d-none");
-    document.querySelector("#dropdown2").classList.remove("d-none");
-  }
+  // if (document.referrer.split("/").pop() === "gallery.html") {
+  //   document.querySelectorAll(".my-select").forEach((element) => {
+  //     element.classList.add("d-none");
+  //   });
+  //   let dropOption = document.querySelector("#dropdown");
+  //   dropOption.value = "General Inquiry";
+  // }
 }
 
 function getReferringPage() {
@@ -184,4 +194,62 @@ function modalHandle() {
   let myText = document.querySelector("#custom-text");
   myText.textContent = `${username.value}, thank you for your details.
      We will be in touch via ${mail.value} shortly.`;
+}
+
+// check date if in past
+function checkIsItInPast() {
+  const currentDate = new Date();
+  console.log(currentDate);
+  const selectedDate = new Date(dateEl.value);
+  console.log(selectedDate);
+  if (selectedDate < currentDate) {
+    dateEl.classList.add("border-danger");
+    myEr.classList.remove("d-none");
+    myEr.textContent = "Date cant be in the past";
+    return false;
+  }
+  return true;
+}
+
+// remove datepicker error
+function datePickCustomError() {
+  myEr.classList.add("d-none");
+  dateEl.classList.remove("border-danger");
+}
+
+// handle checkbox toggle
+
+function handleCheckboxToggle() {
+  let appointment = document.querySelector("#inlineRadio1");
+  let inquiry = document.querySelector("#inlineRadio2");
+  let dropOption = document.querySelector("#dropdown");
+  dropOption.value = "General Inquiry";
+
+  appointment.addEventListener("click", function () {
+    document.querySelectorAll(".my-select").forEach((element) => {
+      element.classList.add("d-none");
+    });
+    // let dropOption = document.querySelector("#dropdown");
+    dropOption.value = "General Inquiry";
+    dateEl.classList.remove("d-none");
+    dateEl.value = "";
+    document.querySelector(".my-datepicker").classList.remove("d-none");
+  });
+
+  inquiry.addEventListener("click", function () {
+    document.querySelectorAll(".my-select").forEach((element) => {
+      element.classList.remove("d-none");
+    });
+    dateEl.classList.add("d-none");
+    document.querySelector(".my-datepicker").classList.add("d-none");
+    const currentDate = new Date();
+    const nextDay = new Date(currentDate);
+    nextDay.setDate(currentDate.getDate() + 1);
+
+    // Format the date to 'YYYY-MM-DD'
+    const defaultDate = nextDay.toISOString().split("T")[0];
+
+    // Set the value of the datepicker
+    dateEl.value = defaultDate;
+  });
 }
