@@ -36,13 +36,15 @@ var christmasImages = [
 // change image
 function changeImg() {
   document.getElementById("family-slide-1").innerHTML =
-    '<img class="image" src="' + familyImages[i] + '" alt="Description">';
+    '<img class="img-fluid" src="' + familyImages[i] + '" alt="Description">';
   document.getElementById("party-slide-1").innerHTML =
-    '<img class="image" src="' + partyImages[i] + '" alt="Description">';
+    '<img class="img-fluid" src="' + partyImages[i] + '" alt="Description">';
   document.getElementById("friends-slide-1").innerHTML =
-    '<img class="image" src="' + friendsImages[i] + '" alt="Description">';
+    '<img class="img-fluid" src="' + friendsImages[i] + '" alt="Description">';
   document.getElementById("christmas-slide-1").innerHTML =
-    '<img class="image" src="' + christmasImages[i] + '" alt="Description">';
+    '<img class="img-fluid" src="' +
+    christmasImages[i] +
+    '" alt="Description">';
 
   if (i < familyImages.length - 1) {
     i++;
