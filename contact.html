@@ -25,7 +25,6 @@
   </head>
   <body>
     <!-- navbar -->
-
     <div class="container-fluid team-form d-flex flex-column p-0">
       <nav
         class="navbar navbar-expand-lg navbar-light border-bottom border-dark"
@@ -76,12 +75,39 @@
           </div>
         </div>
       </nav>
-
       <!-- end navbar -->
 
       <div class="container pt-2">
-        <div class="row">
-          <h2 class="text-white">CONTACT US</h2>
+        <div class="row pt-1">
+          <!-- code in work -->
+          <div
+            class="bg-transparent d-flex justify-content-between flex-column"
+          >
+            <h2 class="text-white w-50">CONTACT US</h2>
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <button class="btn btn-primary" id="winBtn">
+                  Win discount
+                </button>
+                <span id="tries" class="text-white bg-dark px-2 py-2">3</span>
+                <span class="text-white">Tries Left</span>
+              </div>
+
+              <div class="relative d-none">
+                <p class="text-white discount h5 fw-bold">25%</p>
+                <img
+                  src="assets/images/cupon1.png"
+                  width="140"
+                  height="70"
+                  alt=""
+                  class="border-2 border border-primary"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- <h2 class="text-white">CONTACT US</h2> -->
+
+          <!-- end of code in work -->
           <form
             role="form"
             id="myForm"
@@ -202,7 +228,6 @@
       </div>
 
       <!-- footer -->
-      <!--       -->
       <footer class="bg-dark p-3">
         <!-- Section: Social -->
         <div
@@ -256,7 +281,6 @@
           </a>
         </div>
       </footer>
-
       <!-- end footer -->
     </div>
     <!-- modal -->
@@ -293,10 +317,7 @@
         </div>
       </div>
     </div>
-
     <!-- end modal -->
-
-    <!-- <script src="assets/js/form.js"></script> -->
     <script src="assets/js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script

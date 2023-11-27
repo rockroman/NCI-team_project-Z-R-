@@ -146,6 +146,15 @@ footer {
 }
 
 /* form page */
+
+.discount {
+  position: absolute;
+  left: 37%;
+  top: 5%;
+}
+.relative {
+  position: relative;
+}
 .team-form {
   height: 100%;
 

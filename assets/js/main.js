@@ -1,69 +1,3 @@
-// form validation
-
-// const myForm = document.querySelector("#myForm");
-// let username = document.querySelector("#name");
-// let mail = document.querySelector("#email");
-// // console.log(mail);
-// let inputsFields = document.querySelectorAll("input");
-
-// myForm.addEventListener("submit", handleSubmit);
-
-// inputsFields.forEach((field) => {
-//   field.addEventListener("focus", () => {
-//     field.classList.remove("border-danger");
-//     field.placeholder = "";
-//   });
-// });
-
-// function handleSubmit(e) {
-//   e.preventDefault();
-//   let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-//   console.log(username.value);
-//   if (username.value === "") {
-//     username.classList.add("border-danger");
-//     username.placeholder = "Name must be provided";
-//     return false;
-//   }
-
-//   if (!mail.value.match(validRegex)) {
-//     mail.classList.add("border-danger");
-//     mail.placeholder = "Please enter a valid e-mail address";
-//     return false;
-//   }
-
-//   myForm.reset();
-// }
-// myForm.addEventListener("submit", handleSubmit);
-// const myForm = document.querySelector("#myForm");
-// let username = document.querySelector("#name");
-// let mail = document.querySelector("#exampleInputEmail1");
-// let modal = document.querySelector("#exampleModal");
-// const closeBtn = document.querySelector("#close-modal");
-
-// function handleSubmit(event) {
-//   let myText = document.querySelector("#custom-text");
-//   myText.textContent = `${username.value}, thank you for your details.
-//    We will be in touch via ${mail.value} shortly.`;
-//   myForm.classList.add("hide");
-//   new bootstrap.Modal(document.querySelector("#exampleModal")).show();
-
-//   event.preventDefault();
-//   window.onclick = function (event) {
-//     if (event.target == modal) {
-//       modal.style.display = "none";
-//       handleModalClosing();
-//     }
-//   };
-// }
-
-// const handleModalClosing = () => {
-//   myForm.classList.remove("hide");
-//   myForm.reset();
-// };
-
-// myForm.addEventListener("submit", handleSubmit);
-// closeBtn.addEventListener("click", handleModalClosing);
-
 // images effect
 
 // code taken and adjusted from YT tutorial:
@@ -80,11 +14,9 @@ myCards.forEach(
       card.style.setProperty("--y", y + "px");
     })
 );
-
 // end images effect
 
 // navbar on scroll
-
 const navbar = document.querySelector(".navbar");
 
 window.onscroll = () => {
@@ -92,11 +24,54 @@ window.onscroll = () => {
     ? navbar.classList.add("bg-dark")
     : navbar.classList.remove("bg-dark");
 };
-
 // end navbar on scroll
 
-//form
+// contact page logic
 
+//
+const winBtn = document.getElementById("winBtn");
+const discountContainer = document.querySelector(".relative");
+const tries = document.getElementById("tries");
+const discount = document.querySelector(".discount");
+let discountAttempts = 3;
+
+function generateDiscount() {
+  const discountRange = [
+    "5%",
+    "7%",
+    "9%",
+    "10%",
+    "12%",
+    "15%",
+    "17%",
+    "20%",
+    "25%",
+  ];
+  discountAttempts--;
+  discount.textContent = discountRange[Math.floor(Math.random() * 9)];
+  discountContainer.classList.remove("d-none");
+  console.log(discountAttempts);
+  tries.textContent = discountAttempts;
+  stopDiscountAttempts();
+}
+
+//limit generating discount only 3 times
+function stopDiscountAttempts() {
+  if (discountAttempts === 0) {
+    winBtn.setAttribute("disabled", "");
+  }
+}
+
+// reseting discounts game after
+function resetDiscountGame() {
+  discountAttempts = 0;
+  discountContainer.classList.add("d-none");
+  winBtn.removeAttribute("disabled", "");
+}
+
+//end  discount logic
+
+//form
 const myForm = document.querySelector("#myForm");
 let username = document.querySelector("#name");
 let mail = document.querySelector("#email");
@@ -142,7 +117,6 @@ function handleSubmit(e) {
   } else {
     formValid = checkIsItInPast();
   }
-  // checkIsItInPast();
 
   if (dropOption.value === "") {
     custError.classList.remove("d-none");
@@ -154,12 +128,14 @@ function handleSubmit(e) {
     modalHandle();
     new bootstrap.Modal(document.querySelector("#exampleModal")).show();
     myForm.reset();
+    discountAttempts = 0;
     handleCheckboxToggle();
     document.querySelectorAll(".my-select").forEach((element) => {
       element.classList.add("d-none");
     });
     document.querySelector(".my-datepicker").classList.remove("d-none");
     dateEl.classList.remove("d-none");
+    resetDiscountGame();
   }
 }
 
@@ -176,14 +152,8 @@ function switchingEventListeners() {
     handleCheckboxToggle();
     myForm.addEventListener("submit", handleSubmit);
     dateEl.addEventListener("focus", datePickCustomError);
+    winBtn.addEventListener("click", generateDiscount);
   }
-  // if (document.referrer.split("/").pop() === "gallery.html") {
-  //   document.querySelectorAll(".my-select").forEach((element) => {
-  //     element.classList.add("d-none");
-  //   });
-  //   let dropOption = document.querySelector("#dropdown");
-  //   dropOption.value = "General Inquiry";
-  // }
 }
 
 function getReferringPage() {
@@ -193,7 +163,9 @@ function getReferringPage() {
 function modalHandle() {
   let myText = document.querySelector("#custom-text");
   myText.textContent = `${username.value}, thank you for your details.
-     We will be in touch via ${mail.value} shortly.`;
+     We will be in touch via ${mail.value} shortly.
+     <
+     YOU WON ${discount.textContent} DISCOUNT ON OUR SERVICES`;
 }
 
 // check date if in past
