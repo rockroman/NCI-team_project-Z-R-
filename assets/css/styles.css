@@ -1,17 +1,8 @@
 /* galllery css */
 
-/* body{
-    text-align: center;
-} */
-
 .show {
   background-color: cornsilk;
 }
-/* .row {
-  margin-top: 50px;
-  min-height: 50px;
-  justify-content: space-between;
-} */
 
 .row {
   padding-top: 50px;
@@ -19,40 +10,15 @@
   justify-content: space-between;
 }
 
-/* .custom-row {
-  margin-top: 50px !important;
-  min-height: 50px;
-  justify-content: space-between;
-} */
-
-/* .image {
-  width: 500px;
-  height: auto;
-} */
-
 /* end gallery css */
 
 body {
   height: 100%;
-
-  /* background: url(../images/camera.jpeg) no-repeat center center fixed;
-  background-size: cover;
-  backdrop-filter: blur(5px);
-  opacity: 91%; */
 }
 
 footer {
   flex: 1;
 }
-
-/* body { */
-/* height: 100%; */
-/* background: url(../images/camera.jpeg) no-repeat right/cover fixed; */
-/* } */
-
-/* .hide {
-  display: none;
-} */
 
 /* navbar toggler color change */
 .navbar-toggler-icon {
@@ -60,49 +26,42 @@ footer {
 }
 
 .navbar-toggler {
-  /* border: 2px solid rgb(199, 190, 187); */
   background-image: none;
 }
 .navbar-toggler:focus {
   box-shadow: none;
 }
 
+/* navbar color change on different viewport sizes */
+
+/* @media (min-width: 400px) {
+  .navbar {
+    background-color: transparent !important;
+  }
+} */
+
 /* sections of landing page */
 
 .left {
   height: 85vh;
   background-color: black;
-  /* background-color: rgb(42, 41, 41); */
+
   flex: 1.5;
   padding-top: 80px;
 }
 .right {
   background: no-repeat top/cover url(../images//cam_land2.jpeg);
-  /* background: no-repeat top/cover url(../images/camera.jpeg); */
   opacity: 95%;
-  backdrop-filter: ;
-
   flex: 1;
 }
-/* .right {
-  background: no-repeat top/cover url(../images//cam_land2.jpeg);
-
-  height: 50vh;
-}
-.left {
-  height: 50vh;
-  background-color: black;
-} */
 
 /* images section */
 
 .showcase {
   background-color: black;
-  /* position: relative; */
 }
 
 /* hover glow */
-
 .mycard {
   position: relative;
   overflow: hidden;
@@ -132,7 +91,7 @@ footer {
 /* cta button */
 .cta:hover {
   background-color: rgb(8, 8, 8);
-  scale: 1.05;
+  /* scale: 1.05; */
   transition: 0.5s ease-in-out;
   border: 2px solid rgb(119, 119, 253);
   font-size: 120%;
