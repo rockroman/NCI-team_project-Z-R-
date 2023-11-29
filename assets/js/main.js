@@ -164,7 +164,7 @@ function modalHandle() {
   let myText = document.querySelector("#custom-text");
   myText.textContent = `${username.value}, thank you for your details.
      We will be in touch via ${mail.value} shortly.
-     <
+
      YOU WON ${discount.textContent} DISCOUNT ON OUR SERVICES`;
 }
 

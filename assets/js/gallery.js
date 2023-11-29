@@ -59,3 +59,30 @@ function changeImg() {
 document.addEventListener("DOMContentLoaded", function () {
   changeImg();
 });
+
+// back to top button source  https://mdbootstrap.com/docs/standard/extended/back-to-top/
+//Get the button
+let backToTopButton = document.getElementById("btn-back-to-top");
+
+// When the user scrolls down 300px from the top of the document, show the button
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (
+    document.body.scrollTop > 300 ||
+    document.documentElement.scrollTop > 300
+  ) {
+    $("#btn-back-to-top").fadeIn(1200);
+  } else {
+    $("#btn-back-to-top").fadeOut(800);
+  }
+}
+// When the user clicks on the button, scroll to the top of the document
+backToTopButton.addEventListener("click", backToTop);
+
+function backToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
