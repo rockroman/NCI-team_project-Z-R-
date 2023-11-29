@@ -3,6 +3,13 @@ body {
   background-color: black;
 }
 
+h1 {
+  color: white;
+}
+p {
+  color: rgb(105, 105, 225);
+}
+
 footer {
   flex: 1;
 }
@@ -93,7 +100,7 @@ footer {
 /* galllery css */
 
 .show {
-  background-color: cornsilk;
+  /* background-color: cornsilk; */
 }
 
 /* Styles for back to top button */

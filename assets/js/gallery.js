@@ -36,13 +36,20 @@ var christmasImages = [
 // change image
 function changeImg() {
   document.getElementById("family-slide-1").innerHTML =
-    '<img class="img-fluid" src="' + familyImages[i] + '" alt="Description">';
+    '<img class="img-fluid gallery-image" src="' +
+    familyImages[i] +
+    '" alt="Description">';
+
   document.getElementById("party-slide-1").innerHTML =
-    '<img class="img-fluid" src="' + partyImages[i] + '" alt="Description">';
+    '<img class="img-fluid gallery-image" src="' +
+    partyImages[i] +
+    '" alt="Description">';
   document.getElementById("friends-slide-1").innerHTML =
-    '<img class="img-fluid" src="' + friendsImages[i] + '" alt="Description">';
+    '<img class="img-fluid gallery-image" src="' +
+    friendsImages[i] +
+    '" alt="Description">';
   document.getElementById("christmas-slide-1").innerHTML =
-    '<img class="img-fluid" src="' +
+    '<img class="img-fluid gallery-image" src="' +
     christmasImages[i] +
     '" alt="Description">';
 
@@ -86,3 +93,29 @@ function backToTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+let overlay = document.querySelector("#altText");
+let galleryImage = document.querySelector(".gallery-image");
+// document.get(".gallery-image");
+
+// let galleryImagesArray = Array.from(galleryImages);
+
+// galleryImagesArray.forEach((galleryImage) => {
+//   galleryImage.addEventListener("mouseover", function () {
+//     overlay.style.opacity = "1";
+//     overlay.textContent = galleryImage.getAttribute("alt");
+//   });
+//   galleryImage.addEventListener("mouseout", function () {
+//     overlay.style.opacity = "0";
+//   });
+// });
+
+galleryImage.addEventListener("mouseover", function () {
+  overlay.style.opacity = "1";
+
+  overlay.textContent = galleryImage.getAttribute("alt");
+});
+
+galleryImage.addEventListener("mouseout", function () {
+  overlay.style.opacity = "0";
+});

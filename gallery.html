@@ -109,6 +109,24 @@
     </button>
 
     <!-- end back to top button -->
+    <style>
+      .gallery-img {
+        position: relative;
+      }
+      #altText {
+        position: absolute;
+        left: 32%;
+        top: 50%;
+        background-color: rgb(105, 105, 225);
+        width: 150px;
+        height: 70px;
+        border-radius: 50%;
+        padding: 20px 10px 20px 10px;
+        opacity: 0;
+        z-index: 2000;
+        transition: opacity 0.7s ease;
+      }
+    </style>
 
     <!-- end navbar -->
     <div class="container-fluid bg-black">
@@ -118,10 +136,11 @@
         <div class="row pt-1">
           <div class="col-lg-8 show gallery-img">
             <img
-              class="img-fluid"
+              class="img-fluid gallery-image"
               src="assets/pictures/party1.jpg"
-              alt="Description"
+              alt="Party time"
             />
+            <span id="altText" class="text-white text-center"></span>
           </div>
 
           <div class="col-lg-4 show">
@@ -131,7 +150,9 @@
               the lens. Our shop is more than just a collection of photographs;
               it's a celebration of life's most precious chapters.
             </p>
-            <h3>Discover Your Story, Captured Beautifully</h3>
+            <h3 class="text-white">
+              Discover Your Story, Captured Beautifully
+            </h3>
             <p>
               Step into our world of photography where every click immortalizes
               the essence of cherished memories. Whether it's the laughter
@@ -139,7 +160,7 @@
               party, or the enchanting aura of the Christmas season, our
               photography styles aim to preserve these moments forever.
             </p>
-            <h3>Beyond Photographs, Creating Connections</h3>
+            <h3 class="text-white">Beyond Photographs, Creating Connections</h3>
             <p>
               Beyond offering stunning visuals,Dream Memo is a place that
               cherishes the human connection. Every photo we capture holds a
@@ -150,7 +171,9 @@
         </div>
 
         <div class="row custom-row">
-          <div class="col-lg-8 show" id="family-slide-1"></div>
+          <div class="col-lg-8 show" id="family-slide-1">
+            <span id="altText" class="text-warning text-center">nice</span>
+          </div>
 
           <div class="col-lg-4 show">
             <h1>
@@ -158,11 +181,17 @@
               bonds in our collection, where every photograph tells a story of
               love and togetherness.
             </h1>
-            <h2>
-              <a href="contact.html"
+            <!-- <h2> -->
+            <!-- <a href="contact.html"
                 >Contact us for more details or book an appointment with us</a
-              >
-            </h2>
+              > -->
+            <a
+              href="contact.html"
+              class="cta btn btn-outline-primary text-white mt-1 px-4 py-2 px-md-5 py-md-3"
+            >
+              CONTACT US
+            </a>
+            <!-- </h2> -->
           </div>
         </div>
 
@@ -174,11 +203,17 @@
               our collection immortalizes the joy and adventures shared among
               friends.
             </h1>
-            <h2>
+            <!-- <h2>
               <a href="contact.html"
                 >Contact us for more details or book an appointment with us</a
               >
-            </h2>
+            </h2> -->
+            <a
+              href="contact.html"
+              class="cta btn btn-outline-primary text-white mt-1 px-4 py-2 px-md-5 py-md-3"
+            >
+              CONTACT US
+            </a>
           </div>
         </div>
 
@@ -190,11 +225,17 @@
               moments through our collection, encapsulating the spirit and joy
               of every gathering.
             </h1>
-            <h2>
+            <!-- <h2>
               <a href="contact.html"
                 >Contact us for more details or book an appointment with us</a
               >
-            </h2>
+            </h2> -->
+            <a
+              href="contact.html"
+              class="cta btn btn-outline-primary text-white mt-1 px-4 py-2 px-md-5 py-md-3"
+            >
+              CONTACT US
+            </a>
           </div>
         </div>
 
@@ -206,11 +247,17 @@
               holidays through our collection, capturing the warmth and sparkle
               of the Christmas season.
             </h1>
-            <h2>
+            <!-- <h2>
               <a href="contact.html"
                 >Contact us for more details or book an appointment with us</a
               >
-            </h2>
+            </h2> -->
+            <a
+              href="contact.html"
+              class="cta btn btn-outline-primary text-white mt-1 px-4 py-2 px-md-5 py-md-3"
+            >
+              CONTACT US
+            </a>
           </div>
         </div>
       </div>
