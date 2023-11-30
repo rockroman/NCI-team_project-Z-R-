@@ -16,6 +16,8 @@ myCards.forEach(
 );
 // end images effect
 
+// content of the html file written by Roman Rakic
+
 // navbar on scroll
 const navbar = document.querySelector(".navbar");
 

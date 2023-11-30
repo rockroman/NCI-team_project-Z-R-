@@ -1,3 +1,4 @@
+// <!--  content of the  file written by Zheng Mai -->
 document.addEventListener("DOMContentLoaded", function () {
   var i = 0;
   var time = 3000;
