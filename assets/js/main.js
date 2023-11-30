@@ -27,8 +27,6 @@ window.onscroll = () => {
 // end navbar on scroll
 
 // contact page logic
-
-//
 const winBtn = document.getElementById("winBtn");
 const discountContainer = document.querySelector(".relative");
 const tries = document.getElementById("tries");
@@ -68,7 +66,6 @@ function resetDiscountGame() {
   discountContainer.classList.add("d-none");
   winBtn.removeAttribute("disabled", "");
 }
-
 //end  discount logic
 
 //form

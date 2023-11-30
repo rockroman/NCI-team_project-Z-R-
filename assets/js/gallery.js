@@ -94,21 +94,9 @@ function backToTop() {
   document.documentElement.scrollTop = 0;
 }
 
+// gallery image overlay logic
 let overlay = document.querySelector("#altText");
 let galleryImage = document.querySelector(".gallery-image");
-// document.get(".gallery-image");
-
-// let galleryImagesArray = Array.from(galleryImages);
-
-// galleryImagesArray.forEach((galleryImage) => {
-//   galleryImage.addEventListener("mouseover", function () {
-//     overlay.style.opacity = "1";
-//     overlay.textContent = galleryImage.getAttribute("alt");
-//   });
-//   galleryImage.addEventListener("mouseout", function () {
-//     overlay.style.opacity = "0";
-//   });
-// });
 
 galleryImage.addEventListener("mouseover", function () {
   overlay.style.opacity = "1";
