@@ -1,3 +1,5 @@
+// code taken and adjusted for project needs from
+// https://www.youtube.com/watch?v=4YQ4svkETS0
 var i = 0;
 var time = 3000;
 

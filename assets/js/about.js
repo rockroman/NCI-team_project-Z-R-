@@ -1,4 +1,7 @@
 // <!--  content of the  file written by Zheng Mai -->
+
+// code taken and adjusted for project needs from
+// https://www.youtube.com/watch?v=4YQ4svkETS0
 document.addEventListener("DOMContentLoaded", function () {
   var i = 0;
   var time = 3000;
